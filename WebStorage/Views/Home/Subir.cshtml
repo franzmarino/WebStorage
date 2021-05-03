@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Subir";
+}
+
+<h2>Subir archivo a Azure Storage File</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>Seleccione un archivo:</label>
+        <input type="file" name="file" size="25" class="form-control" />
+    </div>
+    <br />
+    <div>
+        <button type="submit" class="btn btn-success">Subir archivo</button>
+    </div>
+</form>
+
+<h3 style="color:green">
+    @ViewBag.Mensaje
+</h3>
+
+@Html.ActionLink("Todos", "Todos", "Home")
