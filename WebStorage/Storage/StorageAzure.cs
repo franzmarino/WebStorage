@@ -12,9 +12,9 @@ namespace WebStorage.Storage
         ShareClient root;
         public StorageAzure()
         {
-            string keys = @"DefaultEndpointsProtocol=https;AccountName=apisegura;AccountKey=vRc7MEYYp4aN1viy4iTkPNmAW7UjnWLX/iEyMmskynmRrHCIRuMKnRKCbUMeUt5AdQ0hkWUdO84LXoBWQ9kX7Q==;EndpointSuffix=core.windows.net";
-            string share = "data";
-            root = new ShareClient(keys, share);
+            string key = @"DefaultEndpointsProtocol=https;AccountName=archivoseduardo;AccountKey=Xco90YT7AAzWImXX5cGAj+4+tOwwQArcJp9TiTJSgNPbRwlJnyyAPis+5kYK66jQJLvgA56rKRNsmHuxQ1TPmA==;EndpointSuffix=core.windows.net";
+            string share = "archivos";
+            root = new ShareClient(key, share);
             
         }
 
@@ -24,7 +24,9 @@ namespace WebStorage.Storage
             var files=root.GetRootDirectoryClient().GetFilesAndDirectories();
             foreach (var item in files)
             {
-                FileNames.Add(item.Name);
+                var tipo = " (archivo)";
+                if (item.IsDirectory) tipo =" (Carpeta)";
+                FileNames.Add(item.Name+tipo);
             }
             return FileNames;
         }

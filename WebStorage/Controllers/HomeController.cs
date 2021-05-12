@@ -9,7 +9,7 @@ namespace WebStorage.Controllers
 {
     public class HomeController : Controller
     {
-        IStorage storage=new StorageAzure();
+        IStorage storage=new BlobStorage();
 
         
         public ActionResult Index()
